@@ -53,9 +53,25 @@ p, label {
 header {
   background-color: #4f8a8bf1;
   z-index: 20;
-  padding: 20px;
+  padding: 20px 25px;
   position: sticky;
     top: 0;
+}
+
+header button{
+  background-color: #222831;
+  border: 3px solid #FBD46D;
+  border-radius: 10px;
+  color: #EEE;
+  padding: 10px 20px;
+}
+
+header button:focus,
+header button:hover {
+  background-color: #EEE;
+  border: 3px solid #222831;
+  box-shadow: 3px 3px 0px #FBD46D;
+  color: #222831;
 }
 
 /* MAIN + ASIDE DIV */
@@ -229,7 +245,7 @@ footer {
   width: 100%;
 }
 
-.footFlex {
+.bannerFlex {
   display: flex;
   justify-content: space-between;
 }
