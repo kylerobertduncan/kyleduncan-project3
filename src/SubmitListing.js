@@ -3,12 +3,14 @@ import firebase from './firebase.js';
 
 function SubmitListing() {
 
-  const [newListing, setNewListing] = useState({
+  const defaultInputs = {
     title: "",
     system: "",
     synopsis: "",
     startedBy: ""
-  });
+  }
+
+  const [newListing, setNewListing] = useState({...defaultInputs});
 
   const handleChange = (e) => {
     const newListingInput = { ...newListing }; // this may not work with more nested objects? e.g. "players: []"
@@ -20,14 +22,20 @@ function SubmitListing() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const dbRef = firebase.database().ref();
-    dbRef.push(newListing);
-    setNewListing({
-      title: "",
-      system: "",
-      synopsis: "",
-      startedBy: ""
-    });
+    const checkFields = { ...newListing }
+    let emptyField = false;
+    for (let value in checkFields) {
+      if (checkFields[value].trim() == "") {
+        emptyField = true
+      }
+    }
+    if (emptyField === true) {
+      window.alert("Please complete all fields.")
+    } else {
+      const dbRef = firebase.database().ref();
+      dbRef.push(newListing);
+      setNewListing(defaultInputs);
+    }
   }
 
   return(
@@ -38,7 +46,7 @@ function SubmitListing() {
       <label htmlFor="system">Game System:</label>
       <input type="text" id="system" onChange={handleChange} value={newListing.system} />
       <label htmlFor="synopsis">Synopsis:</label>
-      <textarea id="synopsis" onChange={handleChange} value={newListing.synopsis}></textarea>
+      <textarea id="synopsis" onChange={handleChange} value={newListing.synopsis} ></textarea>
       <label htmlFor="startedBy">Your name:</label>
       <input type="text" id="startedBy" onChange={handleChange} value={newListing.startedBy} />
       <button type="submit" onClick={handleSubmit}>Post it!</button>

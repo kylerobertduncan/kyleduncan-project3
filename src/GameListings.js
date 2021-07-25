@@ -3,8 +3,11 @@ import firebase from './firebase.js';
 function GameListings(props) {
 
   const handleDelete = (listingID) => {
-    const dbRef = firebase.database().ref();
-    dbRef.child(listingID).remove();
+    const confirm = window.confirm("This will permanently delete the listing. Would you like to continue?");
+    if (confirm == true) {
+      const dbRef = firebase.database().ref();
+      dbRef.child(listingID).remove();
+    }
   }
 
   const { title, system, synopsis, startedBy } = props.details.info;

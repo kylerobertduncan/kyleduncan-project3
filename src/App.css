@@ -29,6 +29,7 @@ h1, h2, h3, p, button, a {
 
 h1, h2, label {
   color: #EEE;
+  line-height: 1;
 }
 
 p, label {
@@ -36,7 +37,6 @@ p, label {
 }
 
 .App {
-  /* background-color:#222831; */
   background-image: url('./assets/layered-waves-haikei.svg');
   background-size: cover;
   background-attachment: fixed;
@@ -46,17 +46,23 @@ p, label {
 
 .wrapper {
   margin: 0 auto;
-  max-width: 1500px;
-  width: 95%;
+  max-width: 1920px;
+  width: 90%;
 }
 
 /* HEADER SECTION */
 header {
   background-color: #4f8a8bf1;
   z-index: 20;
-  padding: 20px 10px;
+  padding: 20px 0;
   position: sticky;
     top: 0;
+}
+
+header div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header button{
@@ -76,41 +82,26 @@ header button:hover {
   color: #222831;
 }
 
-/* MAIN + ASIDE DIV */
-.mainFlex {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 100px;
-}
-
-li,
-form {
-  border: 5px solid #FBD46D;
-  border-radius: 20px;
-  padding: 10px 20px;
-}
-
 /* MAIN SECTION */
 main {
-  padding-bottom: 100px;
+  padding: 20px 0 200px;
 }
 
 ul {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 li {
-  background-color: #EEE;
+  background-color: #EEEEEEe1;
   border: 5px solid #4F8A8B;
-  margin: 20px 10px 0;
-  max-width: calc( (100% - 80px) / 4);
-  min-width: 300px;
+  border-radius: 20px;
+  padding: 10px 20px;
   position: relative;
-  transition: all 0.2s;
   z-index: 10;
 }
 
@@ -152,7 +143,7 @@ li button {
   position: absolute;
     top: -15px;
     right: -15px;
-  transition: all 0.2s;
+  transition: border 0.2s, color 0.2s;
   visibility: hidden;
   width: 40px;
 }
@@ -174,9 +165,10 @@ li button:hover {
 aside {
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 20px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
   height: calc(99vh - 20px);
-  margin: 0 auto;
-  padding: 5vh 5vw;
   position: fixed;
     top: 10px;
     left: 10px;
@@ -190,9 +182,11 @@ aside {
 
 form {
   background-color: #4F8A8B;
+  border: 5px solid #FBD46D;
+  border-radius: 20px;
   margin: auto;
-  /* max-height: 80vh; */
-  overflow-y: scroll;
+  padding: 10px 20px;
+  /* overflow-y: scroll; */
   position: relative;
   text-align: center;
   width: 500px;
@@ -285,18 +279,81 @@ footer {
   background-color: #FBD46D;
   padding: 10px 0;
   position: fixed;
-  bottom: 0;
+    bottom: 0;
+  text-align: right;
   width: 100%;
 }
 
-.bannerFlex {
-  display: flex;
-  justify-content: space-between;
-}
 
 footer a {
   color: #222831;
-  text-align: center;
   text-decoration: none;
-  width: calc(25% - 20px);
+  /* width: calc(25% - 20px); */
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1680px) {
+  ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1350px) {
+  .wrapper {
+    width: 95%;
+  }
+  ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1020px) {
+  .wrapper {
+    width: 90%;
+  }
+  ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-height: 750px) {
+  aside {
+    border-radius: 0;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    overflow-y: scroll;
+  }
+  .closeFormButton {
+    position: fixed;
+  }
+}
+
+@media (max-width: 665px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  ul {
+    grid-template-columns: 1fr;
+  }
+  aside {
+    border-radius: 0;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  header.div {
+    flex-wrap: wrap;
+  }
+  header button {
+    width: 100%;
+  }
 }

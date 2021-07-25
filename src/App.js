@@ -21,8 +21,8 @@ function App() {
     })
   }, []);
 
+  // closes SubmitListing modal when data is retrieved
   useEffect( () => {
-    // console.log('gameList was re-rendered');
     setShowForm(false);
   }, [gameList])
 
@@ -30,8 +30,8 @@ function App() {
       setShowForm(!showForm);
   }
 
+  // closes SubmitListing modal on double click in aside
   function closeModal(e) {
-    console.log(e);
     const click = e.target.nodeName;
     if (click == "ASIDE") {
       handleModal();
@@ -40,10 +40,14 @@ function App() {
 
   return (
     <div className="App">
-
       <header>
-        <div className="bannerFlex wrapper">
-          <h1>TTRPG Notice Board</h1>
+        <div className="wrapper">
+          <h1
+            onClick={() => window.scrollTo({
+              top: 1,
+              behavior: 'smooth'
+            })}
+          >TTRPG Notice Board</h1>
           <button
           onClick={handleModal}
           >Add Game</button>
@@ -72,9 +76,9 @@ function App() {
       </aside>
 
       <footer>
-        <div className="bannerFlex wrapper">
-          <div></div>
-          <a href="https://junocollege.com" rel="noopener noreferrrer" target="_blank">Made at Juno College</a></div>
+        <div className="wrapper">
+          <a href="https://junocollege.com" rel="noopener noreferrrer" target="_blank">Made at Juno College</a>
+        </div>
       </footer>
 
     </div>
