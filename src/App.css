@@ -41,6 +41,7 @@ p, label {
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;
+  position: relative;
 }
 
 .wrapper {
@@ -64,6 +65,7 @@ header button{
   border-radius: 10px;
   color: #EEE;
   padding: 10px 20px;
+  transition: all 0.2s;
 }
 
 header button:focus,
@@ -82,7 +84,7 @@ header button:hover {
 }
 
 li,
-aside {
+form {
   border: 5px solid #FBD46D;
   border-radius: 20px;
   margin-top: 20px;
@@ -91,7 +93,8 @@ aside {
 
 /* MAIN SECTION */
 main {
-  width: calc(75% - 10px);
+  /* width: calc(75% - 10px); */
+  padding-bottom: 100px;
 }
 
 ul {
@@ -106,9 +109,10 @@ ul {
 li {
   background-color: #EEE;
   border: 5px solid #4F8A8B;
-  width: calc( (100% - 40px) / 3);
+  width: calc( (100% - 60px) / 4);
   position: relative;
   z-index: 10;
+  transition: all 0.2s;
 }
 
 li:hover,
@@ -125,13 +129,11 @@ h3 {
 
 .system {
   font-size: 0.8rem;
-  /* font-style: italic; */
   text-align: center;
 }
 .synopsis {
   font-size: 0.8rem;
   margin-top: 15px;
-  /* text-align: center; */
 }
 .startedBy {
   font-size: 0.9rem;
@@ -140,10 +142,10 @@ h3 {
 
 li button {
   background-color: #4F8A8B;
-  border: 3px solid #FBD46D;
+  border: 3px solid #222831;
   border-radius: 50%;
   box-shadow: -3px 3px 3px #222831;
-  color: #FBD46D;
+  color: #222831;
   font-weight: 900;
   height: 40px;
   line-height: 1;
@@ -151,9 +153,9 @@ li button {
   position: absolute;
     top: -15px;
     right: -15px;
+  transition: all 0.2s;
   visibility: hidden;
   width: 40px;
-  /* ADD ANIMATION */
 }
 
 li:focus button,
@@ -165,20 +167,38 @@ li:hover button {
 li button:active,
 li button:focus,
 li button:hover {
-  border: 3px solid #222831;
-  color: #222831;
+  
+  border: 3px solid #FBD46D;
+  color: #FBD46D;
 }
 
 /* ASIDE SECTION */
 aside {
-  background-color: #4F8A8B;
-  max-height: 75vh;
-  overflow-y: scroll;
-  position: sticky;
-    top: 20px;
-  text-align: center;
-  width: calc(25% - 10px);
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  height: 98vh;
+  margin: 0 auto;
+  padding: 5vh 5vw;
+  position: absolute;
+    top: 1vh;
+    left: 0.5vw;
+  width: 99vw;
   z-index: 30;
+}
+
+.hidden {
+  display: none;
+}
+
+form {
+  background-color: #4F8A8B;
+  margin: auto;
+  max-height: 80vh;
+  overflow-y: scroll;
+  /* position: sticky;
+    top: 20px; */
+  text-align: center;
+  width: 500px;
 }
 
 h2 {
@@ -201,6 +221,7 @@ input {
 
 textarea {
   height: 100px;
+  resize: vertical;
 }
 
 input,
@@ -226,6 +247,7 @@ form button {
   height: 40px;
   line-height: 0;
   margin: 20px 0;
+  transition: all 0.2s;
 }
 
 form button:focus,

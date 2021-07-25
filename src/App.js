@@ -7,6 +7,7 @@ import './App.css';
 function App() {
 
   const [ gameList, setGameList ] = useState([]);
+  const [ showForm, setShowForm ] = useState(false);
 
   useEffect( () => {
     const dbRef = firebase.database().ref();
@@ -20,35 +21,38 @@ function App() {
     })
   }, []);
 
+  function handleModal() {
+      setShowForm(!showForm);
+  }
+
   return (
     <div className="App">
+
+      <aside className={showForm ? "" : "hidden"}>
+        <SubmitListing />
+      </aside>
 
       <header>
         <div className="bannerFlex wrapper">
           <h1>TTRPG Notice Board</h1>
-          <button>Add Game</button>
+          <button
+          onClick={handleModal}
+          >Add Game</button>
         </div>
       </header>
 
-      <div className="mainFlex wrapper">
+      <main className="wrapper">
+        <ul>
+          {
+            gameList.map( (listItem) => {
+              return(
+                <GameListings details={listItem} key={listItem.key} />
+              )
+            })
+          }
+        </ul>
+      </main>
 
-        <main>
-          <ul>
-            {
-              gameList.map( (listItem) => {
-                return(
-                  <GameListings details={listItem} key={listItem.key} />
-                )
-              })
-            }
-          </ul>
-        </main>
-
-        <aside>
-          <SubmitListing />
-        </aside>
-
-      </div>
 
       <footer>
         <div className="bannerFlex wrapper">
