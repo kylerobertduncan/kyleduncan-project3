@@ -21,16 +21,25 @@ function App() {
     })
   }, []);
 
+  useEffect( () => {
+    // console.log('gameList was re-rendered');
+    setShowForm(false);
+  }, [gameList])
+
   function handleModal() {
       setShowForm(!showForm);
   }
 
+  function closeModal(e) {
+    console.log(e);
+    const click = e.target.nodeName;
+    if (click == "ASIDE") {
+      handleModal();
+    }
+  }
+
   return (
     <div className="App">
-
-      <aside className={showForm ? "" : "hidden"}>
-        <SubmitListing />
-      </aside>
 
       <header>
         <div className="bannerFlex wrapper">
@@ -53,11 +62,19 @@ function App() {
         </ul>
       </main>
 
+      <aside className={showForm ? "" : "hidden"}
+        onDoubleClick={closeModal}
+      >
+        <SubmitListing />
+        <button className="closeFormButton"
+          onClick={handleModal}
+        >X</button>
+      </aside>
 
       <footer>
         <div className="bannerFlex wrapper">
           <div></div>
-          <a href="https://junocollege.com">Made at Juno College</a></div>
+          <a href="https://junocollege.com" rel="noopener noreferrrer" target="_blank">Made at Juno College</a></div>
       </footer>
 
     </div>

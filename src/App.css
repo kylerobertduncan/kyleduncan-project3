@@ -54,7 +54,7 @@ p, label {
 header {
   background-color: #4f8a8bf1;
   z-index: 20;
-  padding: 20px 25px;
+  padding: 20px 10px;
   position: sticky;
     top: 0;
 }
@@ -72,7 +72,7 @@ header button:focus,
 header button:hover {
   background-color: #EEE;
   border: 3px solid #222831;
-  box-shadow: 3px 3px 0px #FBD46D;
+  box-shadow: -3px 3px 0px #FBD46D;
   color: #222831;
 }
 
@@ -87,20 +87,17 @@ li,
 form {
   border: 5px solid #FBD46D;
   border-radius: 20px;
-  margin-top: 20px;
   padding: 10px 20px;
 }
 
 /* MAIN SECTION */
 main {
-  /* width: calc(75% - 10px); */
   padding-bottom: 100px;
 }
 
 ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -109,10 +106,12 @@ ul {
 li {
   background-color: #EEE;
   border: 5px solid #4F8A8B;
-  width: calc( (100% - 60px) / 4);
+  margin: 20px 10px 0;
+  max-width: calc( (100% - 80px) / 4);
+  min-width: 300px;
   position: relative;
-  z-index: 10;
   transition: all 0.2s;
+  z-index: 10;
 }
 
 li:hover,
@@ -167,7 +166,6 @@ li:hover button {
 li button:active,
 li button:focus,
 li button:hover {
-  
   border: 3px solid #FBD46D;
   color: #FBD46D;
 }
@@ -176,13 +174,13 @@ li button:hover {
 aside {
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 20px;
-  height: 98vh;
+  height: calc(99vh - 20px);
   margin: 0 auto;
   padding: 5vh 5vw;
-  position: absolute;
-    top: 1vh;
-    left: 0.5vw;
-  width: 99vw;
+  position: fixed;
+    top: 10px;
+    left: 10px;
+  width: calc(99vw - 20px);
   z-index: 30;
 }
 
@@ -193,10 +191,9 @@ aside {
 form {
   background-color: #4F8A8B;
   margin: auto;
-  max-height: 80vh;
+  /* max-height: 80vh; */
   overflow-y: scroll;
-  /* position: sticky;
-    top: 20px; */
+  position: relative;
   text-align: center;
   width: 500px;
 }
@@ -254,9 +251,34 @@ form button:focus,
 form button:hover {
   background-color: #EEE;
   border: 3px solid #222831;
-  box-shadow: 3px 3px 0px #FBD46D;
+  box-shadow: -3px 3px 0px #FBD46D;
   color: #222831;
 }
+
+.closeFormButton {
+  background-color: #4F8A8B;
+  border: 3px solid #222831;
+  border-radius: 50%;
+  box-shadow: -3px 3px 3px #222831;
+  color: #222831;
+  font-weight: 900;
+  height: 40px;
+  line-height: 1;
+  padding: 5px;
+  position: absolute;
+    top: 20px;
+    right: 20px;
+  transition: all 0.2s;
+  width: 40px;
+}
+
+.closeFormButton:active,
+.closeFormButton:focus,
+.closeFormButton:hover {
+  border: 3px solid #FBD46D;
+  color: #FBD46D;
+}
+
 
 /* FOOTER SECTION */
 footer {

@@ -27,22 +27,22 @@ function SubmitListing() {
       system: "",
       synopsis: "",
       startedBy: ""
-    })
+    });
   }
 
   return(
-        <form>
-          <h2>Add New Game</h2>
-          <label htmlFor="title">Game Title:</label>
-          <input type="text" id="title" onChange={handleChange} value={newListing.title} />
-          <label htmlFor="system">Game System:</label>
-          <input type="text" id="system" onChange={handleChange} value={newListing.system} />
-          <label htmlFor="synopsis">Synopsis:</label>
-          <textarea id="synopsis" onChange={handleChange} value={newListing.synopsis}></textarea>
-          <label htmlFor="startedBy">Your name:</label>
-          <input type="text" id="startedBy" onChange={handleChange} value={newListing.startedBy} />
-          <button type="submit" onClick={handleSubmit}>Post it!</button>
-        </form>
+    <form>
+      <h2>Add New Game</h2>
+      <label htmlFor="title">Game Title:</label>
+      <input type="text" id="title" onChange={handleChange} value={newListing.title} />
+      <label htmlFor="system">Game System:</label>
+      <input type="text" id="system" onChange={handleChange} value={newListing.system} />
+      <label htmlFor="synopsis">Synopsis:</label>
+      <textarea id="synopsis" onChange={handleChange} value={newListing.synopsis}></textarea>
+      <label htmlFor="startedBy">Your name:</label>
+      <input type="text" id="startedBy" onChange={handleChange} value={newListing.startedBy} />
+      <button type="submit" onClick={handleSubmit}>Post it!</button>
+    </form>
   );
 }
 
