@@ -67,12 +67,12 @@ function App() {
                 return(
                   <li key={listItem.key}>
                     <h3>{title}</h3>
-                    <p className="system">System: {system}</p>
+                    <p className="system">{system}</p>
                     <p className="synopsis">{synopsis}</p>
-                    <p className="owner">Contact: {startedBy}</p>
+                    <p className="startedBy">To play, contact {startedBy}</p>
                     <button
                       onClick={ () => handleDelete(listItem.key) }
-                    >D E L E T E</button>
+                    >X</button>
                   </li>
                 )
               })
@@ -90,7 +90,7 @@ function App() {
             <input type="text" id="system" onChange={handleChange} value={newListing.system} />
             <label htmlFor="synopsis">Synopsis:</label>
             <textarea id="synopsis" onChange={handleChange} value={newListing.synopsis}></textarea>
-            <label htmlFor="startedBy">Offered By:</label>
+            <label htmlFor="startedBy">Your name:</label>
             <input type="text" id="startedBy" onChange={handleChange} value={newListing.startedBy} />
             <button type="submit" onClick={handleSubmit}>Post it!</button>
           </form>
@@ -99,7 +99,7 @@ function App() {
       </div>
 
       <footer>
-        <p>Made at Juno College</p>
+        <a href="https://junocollege.com">Made at Juno College</a>
       </footer>
 
     </div>
