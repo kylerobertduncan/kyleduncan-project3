@@ -56,7 +56,7 @@ function App() {
         <h1>TTRPG Notice Board</h1>
       </header>
 
-      <div className="wrapper">
+      <div className="mainFlex wrapper">
 
         <main>
           <ul>
@@ -65,7 +65,7 @@ function App() {
               gameList.map( (listItem) => {
                 const { title, system, synopsis, startedBy } = listItem.info;
                 return(
-                  <li key={listItem.key}>
+                  <li key={listItem.key} tabIndex="0">
                     <h3>{title}</h3>
                     <p className="system">{system}</p>
                     <p className="synopsis">{synopsis}</p>
@@ -99,7 +99,9 @@ function App() {
       </div>
 
       <footer>
-        <a href="https://junocollege.com">Made at Juno College</a>
+        <div className="footFlex wrapper">
+          <div></div>
+          <a href="https://junocollege.com">Made at Juno College</a></div>
       </footer>
 
     </div>
