@@ -23,7 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # planning, dummy data
-project-planning.md
 pseudocode.txt
 ttrpg-notice-board-default-rtdb-export.json
 wireframe.jpg

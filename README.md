@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# RPG Notice Board app
+A tiled list of TTRPG that are being planned or played, and some key details about them.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Minimum Viable Product
+The MVP is for a user to be able to add and remove games on the 'notice board' by submitting a form with the name of their game/activity and contact info, that persists via Firebase.
 
-## Available Scripts
+## Pseudocode
+[create some dummy data]
+e.g.:
+  randomIndex#1 {
+    title: "A Vale of Veggies",
+    system: "Dungeons & Dragons 5e",
+    startedBy: "Kyle"
+  ~!~ additional data on stretch ~!~
+    synopsis: "A band of anthropomorphic vegetable outlaws mount a resistance against the oppressive Baron d'Aubergine."
+    minPlayers: 3,
+    maxPlayers: 7,
+    open: true,
+    started: false,
+    expectedLength: "6-10 sessions",
+    venue: "Online"
+  }
 
-In the project directory, you can run:
+[connect firebase to the app in a component]
 
-### `npm start`
+### -1-
+Display the current list of available games on the page
+  -a-
+  Set up an empty state (array) that will hold the list of games
+  -b-
+  Get the data from Firebase
+    -i-
+    useEffect to retrieve data on page load, adding a listener .on(value, ...
+    -ii-
+    Store the data in state array
+  -c-
+  Write JSX that maps the array and puts a tile for each game on the page
+    (?) could be a component, send data as props
+    -i- assign key at top level
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### -2- 
+Let the user add new game listings to the database
+  -a-
+  Add a form with the required fields:
+    game & contact
+    (strtech: add more fields)
+    (stretch: a button for a form modal)
+  -b-
+  Capture the users form input(s)
+    -i-
+    Set up a state object to capture the different form inputs
+    -ii-
+    Capture change events in each input and store to the state object
+    -iii-
+    Connect state to form value >> controlled inputs
+  -c-
+  On submit, push the object to firebase (and therefore to the page)
+    -i-
+    Clear the form (and close modal)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### -3-
+Add a button that lets user delete a game listing from the database
+  -a-
+  Add a button to the JSX for each tile
+  -b-
+  Send the key to a handle function
+    -i- Write a function that finds the matching object in the database and removes them
 
-### `npm test`
+## Stretch Goals
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 0.
+X Add animation & accesibility to delete buttons
+X Move main and & aside into components
+X Make the form a modal pop-up
+X  - Create 'add game' button, toggle display
+Import icons for delete buttons?
 
-### `npm run build`
+#### 1/2.
+X Convert main section to grid layout
+Add responsive design
+X Add warning catch on delete button
+X Add authentication on form fields
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### NEXT
+i. Accessibility in SubmitListing modal
+  - add 'esc' key option
+  - lock keyboard into tab cycle
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1.
+Add a prompt at login for userName, and store in state, and autopopulate form name
+Add datalist for gameSystem input, populated by existing gameSystem responses
+Add more gameObject properties and display
+  - make an array of properties that is mapped where required to be generated?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2.
+a.  Add a gameObject property, players: [], and add info to each tile;
+b.  Add a button to each tile that adds userName to player array in database;
+  i. Have function check against maxPlayers
 
-### `npm run eject`
+### 3.
+a. Create a new object in Firebase, users: [];
+b. On page load prompt, compare userName to users array
+  i. On duplicate, confirm ID or refuse name;
+  ii. If new, add userName to users array;
+c. Add function to remove userName from a particular game player array (add/remove button)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 4.
+Add conditional classes or other visual when game tiles, when min & maxPlayers met, or if game is closed
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5.
+a. Collect userName & email at page load, add both as object/s to users: [], and store in currentUser state
+  ? Research authentication/security for storing emails
+  i. Add notify players button on each game that opens an email to all players
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 6.
+Search/filter function that can sort or show tiles by categories or other user queries
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 7.
+Offer a choice of icons for each new game, to infer genre or vibe (via font-awesome)
 
-## Learn More
+### 8.
+Add ability (via modal?) for owner to edit the different properties of their listings
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Styling References
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Background SVG
+dark blue `#001220`
+orange `#FA7268`
+red `#C62368`
 
-### Code Splitting
+### Palette Scheme
+light grey `#EEEEEE`
+dark blue `#222831`
+green `#4F8A8B`
+yellow `#FBD46D`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Fonts
+MONO: `font-family: 'JetBrains Mono', monospace;`
+HEADER: `font-family: 'Ruda', sans-serif;`
+BODY/P: `font-family: 'Spartan', sans-serif;`
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
