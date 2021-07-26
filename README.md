@@ -72,12 +72,10 @@ Add a button that lets user delete a game listing from the database
 X Add animation & accesibility to delete buttons
 X Move main and & aside into components
 X Make the form a modal pop-up
-X  - Create 'add game' button, toggle display
+X - Create 'add game' button, toggle display
 Import icons for delete buttons?
-
-#### 1/2.
 X Convert main section to grid layout
-Add responsive design
+X Add responsive design
 X Add warning catch on delete button
 X Add authentication on form fields
 
@@ -85,6 +83,7 @@ X Add authentication on form fields
 i. Accessibility in SubmitListing modal
   - add 'esc' key option
   - lock keyboard into tab cycle
+ii. Add second background for small screens?
 
 ### 1.
 Add a prompt at login for userName, and store in state, and autopopulate form name
