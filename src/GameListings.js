@@ -4,7 +4,7 @@ function GameListings(props) {
 
   const handleDelete = (listingID) => {
     const confirm = window.confirm("This will permanently delete the listing. Would you like to continue?");
-    if (confirm == true) {
+    if (confirm === true) {
       const dbRef = firebase.database().ref();
       dbRef.child(listingID).remove();
     }

@@ -33,7 +33,7 @@ function App() {
   // closes SubmitListing modal on double click in aside
   function closeModal(e) {
     const click = e.target.nodeName;
-    if (click == "ASIDE") {
+    if (click === "ASIDE") {
       handleModal();
     }
   }
@@ -77,7 +77,7 @@ function App() {
 
       <footer>
         <div className="wrapper">
-          <a href="https://junocollege.com" rel="noopener noreferrrer" target="_blank">Made at Juno College</a>
+          <a href="https://junocollege.com" rel="noopener noreferrer" target="_blank">Made at Juno College</a>
         </div>
       </footer>
 
