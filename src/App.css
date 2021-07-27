@@ -21,26 +21,31 @@ a, button {
   cursor: pointer;
 }
 
-h1, h2, h3, p, button, a {
+h1, h2, h3, ul, p, button, a {
   font-family: 'Ruda', sans-serif;
   margin: 0;
   padding: 0;
-}
-
-h1, h2, label {
-  color: #EEE;
-  line-height: 1;
 }
 
 p, label {
   font-family: 'Spartan', sans-serif;
 }
 
+input,
+textarea {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+h1, h2, button, label {
+  color: #EEE;
+}
+
 .App {
+  background-attachment: fixed;
   background-image: url('./assets/layered-waves-haikei.svg');
   background-size: cover;
-  background-attachment: fixed;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  /* check on mobile */
   position: relative;
 }
 
@@ -53,33 +58,79 @@ p, label {
 /* HEADER SECTION */
 header {
   background-color: #4f8a8bf1;
-  z-index: 20;
+  box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 1);
   padding: 20px 0;
   position: sticky;
     top: 0;
+  z-index: 20;
 }
 
 header div {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-header button{
+/* BUTTONS */
+header button,
+form [type="submit"] {
   background-color: #222831;
   border: 3px solid #FBD46D;
   border-radius: 10px;
   color: #EEE;
-  padding: 10px 20px;
-  transition: all 0.2s;
+  padding: 10px 20px; /* header button only */
+  transition: all 0.2s
+}
+
+form [type="submit"] {
+  margin: 20px 0;
+  padding: 10px 0;
 }
 
 header button:focus,
-header button:hover {
+header button:hover,
+form [type="submit"]:focus,
+form [type="submit"]:hover {
   background-color: #EEE;
   border: 3px solid #222831;
   box-shadow: -3px 3px 0px #FBD46D;
   color: #222831;
+}
+
+li button,
+.closeFormButton {
+  background-color: #4F8A8B;
+  border: 3px solid #222831;
+  border-radius: 50%;
+  box-shadow: -3px 3px 3px #222831;
+  color: #222831;
+  font-weight: 900;
+  height: 40px;
+  position: absolute;
+    top: -15px;
+    right: -15px;
+  transition: border 0.2s, color 0.2s;
+  width: 40px;
+}
+
+li button {
+  visibility: hidden;
+}
+
+li:focus button,
+li:focus-within button,
+li:hover button {
+  visibility: visible;
+}
+
+li button:active,
+li button:focus,
+li button:hover,
+.closeFormButton:active,
+.closeFormButton:focus,
+.closeFormButton:hover {
+  border: 3px solid #FBD46D;
+  color: #FBD46D;
 }
 
 /* MAIN SECTION */
@@ -92,8 +143,6 @@ ul {
   gap: 20px;
   grid-template-columns: repeat(5, 1fr);
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 li {
@@ -108,7 +157,7 @@ li {
 li:hover,
 li:focus,
 li:focus-within {
-  box-shadow: -3px 3px 3px #FBD46D;
+  box-shadow: -4px 4px 2px #FBD46D;
 }
 
 h3 {
@@ -130,63 +179,26 @@ h3 {
   margin: 15px 0;
 }
 
-li button {
-  background-color: #4F8A8B;
-  border: 3px solid #222831;
-  border-radius: 50%;
-  box-shadow: -3px 3px 3px #222831;
-  color: #222831;
-  font-weight: 900;
-  height: 40px;
-  line-height: 1;
-  padding: 5px;
-  position: absolute;
-    top: -15px;
-    right: -15px;
-  transition: border 0.2s, color 0.2s;
-  visibility: hidden;
-  width: 40px;
-}
-
-li:focus button,
-li:focus-within button,
-li:hover button {
-  visibility: visible;
-}
-
-li button:active,
-li button:focus,
-li button:hover {
-  border: 3px solid #FBD46D;
-  color: #FBD46D;
-}
 
 /* ASIDE SECTION */
 aside {
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 20px;
+  background-color: rgba(85, 58, 58, 0.7);
   display: flex;
     justify-content: center;
     align-items: center;
-  height: calc(99vh - 20px);
+  height: 100%;
   position: fixed;
-    top: 10px;
-    left: 10px;
-  width: calc(99vw - 20px);
+    top: 0;
+    left: 0;
+  width: 100%;
   z-index: 30;
-}
-
-.hidden {
-  display: none;
 }
 
 form {
   background-color: #4F8A8B;
   border: 5px solid #FBD46D;
   border-radius: 20px;
-  margin: auto;
   padding: 10px 20px;
-  /* overflow-y: scroll; */
   position: relative;
   text-align: center;
   width: 500px;
@@ -219,7 +231,6 @@ input,
 textarea {
   background-color: #EEE;
   border-radius: 10px;
-  font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;
   margin-top: 5px;
   padding: 10px;
@@ -229,50 +240,6 @@ input:focus,
 textarea:focus {
   box-shadow: 3px 3px 3px #222831;
 }
-
-form button {
-  background-color: #222831;
-  border: 3px solid #FBD46D;
-  border-radius: 10px;
-  color: #EEE;
-  height: 40px;
-  line-height: 0;
-  margin: 20px 0;
-  transition: all 0.2s;
-}
-
-form button:focus,
-form button:hover {
-  background-color: #EEE;
-  border: 3px solid #222831;
-  box-shadow: -3px 3px 0px #FBD46D;
-  color: #222831;
-}
-
-.closeFormButton {
-  background-color: #4F8A8B;
-  border: 3px solid #222831;
-  border-radius: 50%;
-  box-shadow: -3px 3px 3px #222831;
-  color: #222831;
-  font-weight: 900;
-  height: 40px;
-  line-height: 1;
-  padding: 5px;
-  position: absolute;
-    top: 20px;
-    right: 20px;
-  transition: all 0.2s;
-  width: 40px;
-}
-
-.closeFormButton:active,
-.closeFormButton:focus,
-.closeFormButton:hover {
-  border: 3px solid #FBD46D;
-  color: #FBD46D;
-}
-
 
 /* FOOTER SECTION */
 footer {
@@ -284,15 +251,13 @@ footer {
   width: 100%;
 }
 
-
 footer a {
   color: #222831;
+  padding: 10px;
   text-decoration: none;
-  /* width: calc(25% - 20px); */
 }
 
 /* RESPONSIVE DESIGN */
-
 @media (max-width: 1680px) {
   ul {
     grid-template-columns: repeat(4, 1fr);
@@ -317,18 +282,12 @@ footer a {
   }
 }
 
+/* allow for landscape on mobile */
 @media (max-height: 750px) {
   aside {
-    border-radius: 0;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
+    align-items: flex-start;
     padding: 20px;
     overflow-y: scroll;
-  }
-  .closeFormButton {
-    position: fixed;
   }
 }
 
@@ -340,19 +299,12 @@ footer a {
     grid-template-columns: 1fr;
   }
   aside {
-    border-radius: 0;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
+    overflow-y: scroll;
     padding: 20px;
   }
 }
 
 @media (max-width: 550px) {
-  header.div {
-    flex-wrap: wrap;
-  }
   header button {
     width: 100%;
   }

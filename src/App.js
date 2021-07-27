@@ -22,35 +22,23 @@ function App() {
   }, []);
 
   // closes SubmitListing modal when data is retrieved
-  useEffect( () => {
-    setShowForm(false);
-  }, [gameList])
+  // useEffect( () => {
+  //   setShowForm(false);
+  // }, [gameList])
 
   function handleModal() {
       setShowForm(!showForm);
-  }
-
-  // closes SubmitListing modal on double click in aside
-  function closeModal(e) {
-    const click = e.target.nodeName;
-    if (click === "ASIDE") {
-      handleModal();
-    }
   }
 
   return (
     <div className="App">
       <header>
         <div className="wrapper">
-          <h1
-            onClick={() => window.scrollTo({
-              top: 1,
-              behavior: 'smooth'
-            })}
-          >TTRPG Notice Board</h1>
-          <button
-          onClick={handleModal}
-          >Add Game</button>
+          <h1 onClick={() => window.scrollTo({
+            top: 1,
+            behavior: 'smooth'
+          })}>TTRPG Notice Board</h1>
+          <button onClick={handleModal}>Add Game</button>
         </div>
       </header>
 
@@ -58,16 +46,7 @@ function App() {
         <GameListings gameList={gameList} />
       </main>
 
-      <aside
-        className={showForm ? "" : "hidden"}
-        onDoubleClick={closeModal}>
-
-        <SubmitListing />
-        
-        <button className="closeFormButton"
-          onClick={handleModal}
-        >X</button>
-      </aside>
+      { showForm ? <SubmitListing handleModal={handleModal}/> : null }
 
       <footer>
         <div className="wrapper">

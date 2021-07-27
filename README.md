@@ -82,7 +82,7 @@ X Add authentication on form fields
 #### NEXT
 i. Accessibility in SubmitListing modal
   - add 'esc' key option
-  - lock keyboard into tab cycle
+  X lock keyboard into tab cycle ?? autofocus on render
 ii. Add second background for small screens?
 
 ### 1.
