@@ -42,7 +42,7 @@ function SubmitListing() {
     <form>
       <h2>Add New Game</h2>
       <label htmlFor="title">Game Title:</label>
-      <input type="text" id="title" onChange={handleChange} value={newListing.title} />
+      <input autoFocus type="text" id="title" onChange={handleChange} value={newListing.title} />
       <label htmlFor="system">Game System:</label>
       <input type="text" id="system" onChange={handleChange} value={newListing.system} />
       <label htmlFor="synopsis">Synopsis:</label>

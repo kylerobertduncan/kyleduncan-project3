@@ -55,21 +55,15 @@ function App() {
       </header>
 
       <main className="wrapper">
-        <ul>
-          {
-            gameList.map( (listItem) => {
-              return(
-                <GameListings details={listItem} key={listItem.key} />
-              )
-            })
-          }
-        </ul>
+        <GameListings gameList={gameList} />
       </main>
 
-      <aside className={showForm ? "" : "hidden"}
-        onDoubleClick={closeModal}
-      >
+      <aside
+        className={showForm ? "" : "hidden"}
+        onDoubleClick={closeModal}>
+
         <SubmitListing />
+        
         <button className="closeFormButton"
           onClick={handleModal}
         >X</button>
