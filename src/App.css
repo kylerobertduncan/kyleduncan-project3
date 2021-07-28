@@ -141,7 +141,8 @@ main {
 ul {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(5, 1fr);
+  /* grid-auto-flow: dense; */ /* add if I can get listings w span */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   list-style: none;
 }
 
@@ -258,27 +259,15 @@ footer a {
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 1680px) {
-  ul {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
 @media (max-width: 1350px) {
   .wrapper {
     width: 95%;
   }
-  ul {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
-@media (max-width: 1020px) {
+  @media (max-width: 1020px) {
   .wrapper {
     width: 90%;
-  }
-  ul {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -294,18 +283,10 @@ footer a {
 @media (max-width: 665px) {
   h1 {
     font-size: 1.75rem;
-  }
-  ul {
-    grid-template-columns: 1fr;
+    letter-spacing: -1px;
   }
   aside {
     overflow-y: scroll;
     padding: 20px;
-  }
-}
-
-@media (max-width: 550px) {
-  header button {
-    width: 100%;
   }
 }

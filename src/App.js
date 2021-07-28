@@ -21,11 +21,6 @@ function App() {
     })
   }, []);
 
-  // closes SubmitListing modal when data is retrieved
-  // useEffect( () => {
-  //   setShowForm(false);
-  // }, [gameList])
-
   function handleModal() {
       setShowForm(!showForm);
   }
@@ -37,7 +32,7 @@ function App() {
           <h1 onClick={() => window.scrollTo({
             top: 1,
             behavior: 'smooth'
-          })}>TTRPG Notice Board</h1>
+          })}>Folk &amp; Tales</h1>
           <button onClick={handleModal}>Add Game</button>
         </div>
       </header>

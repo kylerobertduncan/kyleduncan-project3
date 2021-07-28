@@ -10,9 +10,9 @@ e.g.:
   randomIndex#1 {
     title: "A Vale of Veggies",
     system: "Dungeons & Dragons 5e",
+    synopsis: "A band of anthropomorphic vegetable outlaws mount a resistance against the oppressive Baron d'Aubergine."
     startedBy: "Kyle"
   ~!~ additional data on stretch ~!~
-    synopsis: "A band of anthropomorphic vegetable outlaws mount a resistance against the oppressive Baron d'Aubergine."
     minPlayers: 3,
     maxPlayers: 7,
     open: true,
@@ -44,7 +44,7 @@ Let the user add new game listings to the database
   Add a form with the required fields:
     game & contact
     (strtech: add more fields)
-    (stretch: a button for a form modal)
+    (stretch: a button for a form modal) X
   -b-
   Capture the users form input(s)
     -i-
@@ -83,7 +83,15 @@ X Add authentication on form fields
 i. Accessibility in SubmitListing modal
   - add 'esc' key option
   X lock keyboard into tab cycle ?? autofocus on render
+  
 ii. Add second background for small screens?
+
+iii. Experiment with grid to make tiles more economically sized
+  - filter gameList on import, based on length of synopsis
+  - add a property to those with long entries (35-50+ words?)
+  - in gameList.map add a class to the li when "long = true"
+  - add a css class that sets grid-column to span 2 (rows?)
+  - add the auto-fill dense attribute to the grid
 
 ### 1.
 Add a prompt at login for userName, and store in state, and autopopulate form name
