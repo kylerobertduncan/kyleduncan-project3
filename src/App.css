@@ -79,6 +79,7 @@ span {
 }
 
 img {
+  color: #001220;
   height: 50px;
   margin: 0 5px;
 }
@@ -86,7 +87,7 @@ img {
 /* BUTTONS */
 header button,
 form [type="submit"] {
-  background-color: #222831;
+  background-color: #001220;
   border: 3px solid #FBD46D;
   border-radius: 10px;
   color: #EEE;
@@ -108,18 +109,18 @@ header button:hover,
 form [type="submit"]:focus,
 form [type="submit"]:hover {
   background-color: #EEE;
-  border: 3px solid #222831;
+  border: 3px solid #001220;
   box-shadow: -3px 3px 0px #FBD46D;
-  color: #222831;
+  color: #001220;
 }
 
 li button,
 .closeFormButton {
   background-color: #4F8A8B;
-  border: 3px solid #222831;
+  border: 3px solid #001220;
   border-radius: 50%;
-  box-shadow: -3px 3px 3px #222831;
-  color: #222831;
+  box-shadow: -3px 3px 3px #001220;
+  color: #001220;
   font-weight: 900;
   height: 40px;
   position: absolute;
@@ -255,7 +256,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-  box-shadow: 3px 3px 3px #222831;
+  box-shadow: 3px 3px 3px #001220;
 }
 
 /* FOOTER SECTION */
@@ -270,7 +271,7 @@ footer {
 }
 
 footer a {
-  color: #222831;
+  color: #001220;
   padding: 10px;
   text-decoration: none;
 }
