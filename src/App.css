@@ -43,6 +43,7 @@ h1, h2, button, label {
   background-attachment: fixed;
   background-image: url('./assets/layered-waves-haikei.svg');
   background-size: cover;
+  min-height: 100vh;
   position: relative;
 }
 
