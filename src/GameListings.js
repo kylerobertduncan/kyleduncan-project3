@@ -24,6 +24,7 @@ function GameListings(props) {
               <p className="startedBy">To play, contact {startedBy}</p>
               <button
                 onClick={() => handleDelete(listItem.key)}
+                aria-label="Delete listing"
               >X</button>
             </li>
           )

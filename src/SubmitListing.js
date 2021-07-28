@@ -61,7 +61,7 @@ function SubmitListing(props) {
         <label htmlFor="startedBy">Your name:</label>
         <input type="text" id="startedBy" onChange={handleChange} value={newListing.startedBy} />
         <button type="submit" onClick={handleSubmit}>Post it!</button>
-        <button className="closeFormButton" onClick={handleModal}>X</button>
+        <button aria-label="Cancel new listing" className="closeFormButton" onClick={handleModal}>X</button>
       </form>
     </aside>
   );

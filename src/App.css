@@ -44,8 +44,6 @@ h1, h2, button, label {
   background-attachment: fixed;
   background-image: url('./assets/layered-waves-haikei.svg');
   background-size: cover;
-  /* min-height: 100vh; */
-  /* check on mobile */
   position: relative;
 }
 
@@ -141,7 +139,8 @@ main {
 ul {
   display: grid;
   gap: 20px;
-  /* grid-auto-flow: dense; */ /* add if I can get listings w span */
+  /* grid-auto-flow: dense; */
+  /* add if I can get listings w span */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   list-style: none;
 }
@@ -183,7 +182,7 @@ h3 {
 
 /* ASIDE SECTION */
 aside {
-  background-color: rgba(85, 58, 58, 0.7);
+  background-color: #222831A0;
   display: flex;
     justify-content: center;
     align-items: center;
