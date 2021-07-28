@@ -197,7 +197,6 @@ h3 {
   margin: 15px 0;
 }
 
-
 /* ASIDE SECTION */
 aside {
   background-color: #222831A0;
@@ -277,19 +276,13 @@ footer a {
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 1350px) {
+@media (max-width: 1025px) {
   .wrapper {
     width: 95%;
   }
 }
 
-  @media (max-width: 1020px) {
-  .wrapper {
-    width: 90%;
-  }
-}
-
-/* allow for landscape on mobile */
+/* accomodate landscape on mobile */
 @media (max-height: 750px) {
   aside {
     align-items: flex-start;
@@ -302,6 +295,9 @@ footer a {
   .App {
     background-image: url('./assets/layered-waves-haikei-mobile.svg');
   }
+  .wrapper {
+    width: 90%;
+  }
   header img {
     height: 35px;
     margin-left: 0;
@@ -313,7 +309,7 @@ footer a {
   header button {
     font-size: 0.9rem;
     margin-right: 0;
-    padding: 5px 10px;
+    padding: 7.5px 15px;
   }
   aside {
     overflow-y: scroll;
