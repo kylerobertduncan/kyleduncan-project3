@@ -69,6 +69,20 @@ header div {
   justify-content: space-between;
 }
 
+h1 {
+  font-weight: 900;
+  margin-bottom: -5px;
+}
+
+span {
+  font-weight: 400;
+}
+
+img {
+  height: 50px;
+  margin: 0 5px;
+}
+
 /* BUTTONS */
 header button,
 form [type="submit"] {
@@ -78,6 +92,10 @@ form [type="submit"] {
   color: #EEE;
   padding: 10px 20px; /* header button only */
   transition: all 0.2s
+}
+
+header button {
+  margin-right: 5px;
 }
 
 form [type="submit"] {
@@ -244,6 +262,7 @@ textarea:focus {
 /* FOOTER SECTION */
 footer {
   background-color: #FBD46D;
+  position: relative;
   padding: 10px 0;
   position: fixed;
     bottom: 0;
@@ -280,9 +299,21 @@ footer a {
 }
 
 @media (max-width: 665px) {
+  .App {
+    background-image: url('./assets/layered-waves-haikei-mobile.svg');
+  }
+  header img {
+    height: 35px;
+    margin-left: 0;
+  }
   h1 {
-    font-size: 1.75rem;
+    font-size: 1.55rem;
     letter-spacing: -1px;
+  }
+  header button {
+    font-size: 0.9rem;
+    margin-right: 0;
+    padding: 5px 10px;
   }
   aside {
     overflow-y: scroll;
