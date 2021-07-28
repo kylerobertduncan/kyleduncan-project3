@@ -30,12 +30,14 @@ function App() {
     <div className="App">
       <header>
         <div className="wrapper">
-          <div>
+          <div className="headFlex">
             <img src={featherIcon} alt="feather icon" />
-            <h1 onClick={() => window.scrollTo({
-              top: 1,
-              behavior: 'smooth'
-            })}>Folk<span>&amp;</span>Tales</h1>
+            <div>
+              <h1 onClick={() => window.scrollTo({top: 1,behavior: 'smooth'})}>
+                Folk<span>&amp;</span>Tales
+              </h1>
+              <p>List and find tabletop roleplaying games, to tell epic tales with great folks.</p>
+            </div>
           </div>
           <button onClick={handleModal}>Add Game</button>
         </div>
