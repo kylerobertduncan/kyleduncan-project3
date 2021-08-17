@@ -42,14 +42,14 @@ function GameListings(props) {
       {
         gameList.map( (listItem) => {
           const { players, system, synopsis, startedBy, title } = listItem.info;
-          // console.log(players);
+          console.log(players);
           return(
             <li key={listItem.key} tabIndex="0">
               <h3>{title}</h3>
               <p className="system">{system}</p>
               <p className="synopsis">{synopsis}</p>
               <p className="startedBy">To play, contact {startedBy}</p>
-              <p className="players">Players: { players ? players : "sign up to play!"}</p>
+              <p className="players">Players: { players ? players.join(', ') : "sign up to play!"}</p>
               {/* <p className="players">Players: {
                 players.map( (player, index) => {
                   if (index > players.length) {
