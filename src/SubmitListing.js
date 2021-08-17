@@ -8,7 +8,8 @@ function SubmitListing(props) {
     title: "",
     system: "",
     synopsis: "",
-    startedBy: ""
+    startedBy: "",
+    players: ["no current players"]
   }
 
   const [newListing, setNewListing] = useState({...defaultInputs});
@@ -34,7 +35,8 @@ function SubmitListing(props) {
     const checkFields = { ...newListing }
     let emptyField = false;
     for (let value in checkFields) {
-      if (checkFields[value].trim() === "") {
+      // if (checkFields[value].trim() === "") {
+      if (checkFields[value] === "") {
         emptyField = true
       }
     }

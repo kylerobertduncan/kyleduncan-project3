@@ -1,0 +1,59 @@
+
+[create some dummy data]
+e.g.:
+  randomIndex#1 {
+    title: "A Vale of Veggies",
+    system: "Dungeons & Dragons 5e",
+    startedBy: "Kyle”
+	synopsis: "A band of anthropomorphic vegetables outlaws mount a restistance against the oppressive Baron d'Aubergine."
+  ~!~ additional data on stretch ~!~
+    minPlayers: 3,
+    maxPlayers: 7,
+    open: true,
+    started: false,
+    expectedLength: "6-10 sessions",
+    venue: "Online"
+  }
+
+[connect firebase to the app in a component]
+
+-1-
+Display the current list of available games on the page
+  -a-
+  Set up an empty state (array) that will hold the list of games
+  -b-
+  Get the data from Firebase
+    -i-
+    useEffect to retrieve data on page load, adding a listener .on(value, ...
+    -ii-
+    Store the data in state array
+  -c-
+  Write JSX that maps the array and puts a tile for each game on the page
+    (?) could be a component, send data as props
+    -i- assign key at top level
+
+-2- 
+Let the user add new game listings to the database
+  -a-
+  Add a form with the required fields:
+    game & contact
+    (stretch: add more fields)
+    (stretch: a button for a form modal)
+  -b-
+  Capture the users form input(s)
+    -i-
+    Set up a state object to capture the different form inputs
+    -ii-
+    Capture change events in each input and store to the state object
+  -c-
+  On submit, push the object to firebase (and therefore to the page)
+    -i-
+    Clear the form (and close modal)
+
+-3-
+Add a button that lets user delete a game listing from the database
+  -a-
+  Add a button to the JSX for each tile
+  -b-
+  Send the key to a handle function
+    -i- Write a function that finds the matching object in the database and removes them

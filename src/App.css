@@ -118,7 +118,7 @@ form [type="submit"]:hover {
   color: #001220;
 }
 
-li button,
+.removeListing,
 .closeFormButton {
   background-color: #4F8A8B;
   border: 3px solid #001220;
@@ -134,19 +134,19 @@ li button,
   width: 40px;
 }
 
-li button {
+.removeListing {
   visibility: hidden;
 }
 
-li:focus button,
-li:focus-within button,
-li:hover button {
+li:focus .removeListing,
+li:focus-within .removeListing,
+li:hover .removeListing {
   visibility: visible;
 }
 
-li button:active,
-li button:focus,
-li button:hover,
+.removeListing:active,
+.removeListing:focus,
+.removeListing:hover,
 .closeFormButton:active,
 .closeFormButton:focus,
 .closeFormButton:hover {
