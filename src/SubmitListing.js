@@ -13,11 +13,13 @@ function SubmitListing(props) {
     maxPlayers: 6,
     campaignLength: "",
     sessionLength: "",
-    venue: "",
+    location: "",
     open: true,
     started: false,
     long: false,
-    dateAdded: ""
+    dateAdded: "",
+    required: [ "title", "synopsis", "startedBy" ]
+    // handles string values only
   }
 
   const [newListing, setNewListing] = useState({...defaultInputs});
@@ -41,12 +43,11 @@ function SubmitListing(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // check for empty fields in the listing
-    const checkFields = { ...newListing }
     let emptyField = false;
-    for (let value in checkFields) {
-      // if (checkFields[value].trim() === "") {
-      if (checkFields[value] === "") {
-        emptyField = true
+    for (let value in newListing.required) {
+      const stringToCheck = newListing[newListing.required[value]];
+      if (stringToCheck.trim() === "") {
+        emptyField = true;
       }
     }
     if (emptyField === true) {
@@ -72,50 +73,75 @@ function SubmitListing(props) {
       <form>
         <h2>Add New Game</h2>
         <div className="formFlex">
+
+          <div className="flexColumn">
+
+            <label htmlFor="title">Game Title:</label>
+            <input autoFocus type="text" id="title" onChange={handleChange} value={newListing.title} />
+
+            <label htmlFor="system">Game System:</label>
+            <input type="text" id="system" onChange={handleChange} value={newListing.system} />
+
+            <label htmlFor="synopsis">Synopsis:</label>
+            <textarea id="synopsis" onChange={handleChange} value={newListing.synopsis} ></textarea>
+
+            <label htmlFor="startedBy">Your name:</label>
+            <input type="text" id="startedBy" onChange={handleChange} value={newListing.startedBy} />
+
+          </div>
           
-          <label htmlFor="title">Game Title:</label>
-          <input autoFocus type="text" id="title" onChange={handleChange} value={newListing.title} />
+          <div className="flexColumn">
 
-          <label htmlFor="system">Game System:</label>
-          <input type="text" id="system" onChange={handleChange} value={newListing.system} />
+            <fieldset className="playerCount">
+              <legend>Number of Players</legend>
+              <div>
+                <label htmlFor="minPlayers">Min.</label>
+                <input type="number" id="minPlayers" min="1" onChange={handleChange} value={newListing.minPlayers} />
+              </div>
+              <div>
+                <label htmlFor="maxPlayers">Max.</label>
+                <input type="number" id="maxPlayers" onChange={handleChange} value={newListing.maxPlayers} />
+              </div>
+            </fieldset>
 
-          <label htmlFor="synopsis">Synopsis:</label>
-          <textarea id="synopsis" onChange={handleChange} value={newListing.synopsis} ></textarea>
-
-          <label htmlFor="startedBy">Your name:</label>
-          <input type="text" id="startedBy" onChange={handleChange} value={newListing.startedBy} />
-          
-          <fieldset className="playerCount">
-            <legend>Number of Players:</legend>
-            <div>
-              <label htmlFor="minPlayers">Min.</label>
-              <input type="number" id="minPlayers" min="1" onChange={handleChange} value={newListing.minPlayers} />
+            <div className="campaignLengthDiv formDiv">
+              <label htmlFor="campaignLength">Campaign Length:</label>
+              <select id="campaignLength" onChange={handleChange} value={newListing.campaignLength}
+              >
+                <option value="" defaultValue disabled>Choose One</option>
+                <option value="oneShot">One Shot: 1-2 sessions</option>
+                <option value="short">Short: 3-5 sessions</option>
+                <option value="medium">Medium: 5-10 sessions</option>
+                <option value="long">Long: 10+ sessions</option>
+              </select>
             </div>
-            <div>
-              <label htmlFor="maxPlayers">Max.</label>
-              <input type="number" id="maxPlayers" onChange={handleChange} value={newListing.maxPlayers} />
+
+            <div className="sessionLengthDiv formDiv">
+              <label htmlFor="sessionLength">Session Length:</label>
+              <input type="text" id="sessionLength" onChange={handleChange} value={newListing.sessionLength} />
             </div>
-          </fieldset>
 
-          <label htmlFor="campaignLength">Campaign Length:</label>
-          <input type="text" id="campaignLength" onChange={handleChange} value={newListing.campaignLength} />
+            <div className="locationDiv formDiv">
+              <label htmlFor="location">Location/Platform:</label>
+              <input type="text" id="location" onChange={handleChange} value={newListing.location} />
+            </div>
 
-          <label htmlFor="sessionLength">Session Length:</label>
-          <input type="text" id="sessionLength" onChange={handleChange} value={newListing.sessionLength} />
+            <div className="gameProgress">
+              <div className="openDiv">
+                <label htmlFor="open">Open to players:</label>
+                <input type="checkbox" id="open" />
+              </div>
+              <div className="startedDiv">
+                <label htmlFor="started">Game started:</label>
+                <input type="checkbox" id="started" />
+              </div>
+            </div>
 
-          <label htmlFor="venue">Venue:</label>
-          <input type="text" id="venue" onChange={handleChange} value={newListing.venue} />
+            <button type="submit" onClick={handleSubmit}>Post it!</button>
 
-          <div className="gameProgress">
-            <label htmlFor="open">Open to players:</label>
-            <input type="checkbox" id="open" />
-            <label htmlFor="started">Game already started:</label>
-            <input type="checkbox" id="started" />
           </div>
 
-          <button type="submit" onClick={handleSubmit}>Post it!</button>
         </div>
-
         <button aria-label="Cancel new listing" className="closeFormButton" onClick={handleModal}>X</button>
       </form>
     </aside>

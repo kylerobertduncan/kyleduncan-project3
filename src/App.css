@@ -26,16 +26,17 @@ h1, h2, h3, ul, p, button, a {
   padding: 0;
 }
 
-p, label {
+p, label, legend {
   font-family: 'Spartan', sans-serif;
 }
 
 input,
+select,
 textarea {
   font-family: 'JetBrains Mono', monospace;
 }
 
-h1, h2, button, label {
+h1, h2, button, label, legend {
   color: #EEE;
 }
 
@@ -104,7 +105,7 @@ header button {
 }
 
 form [type="submit"] {
-  margin: 20px 0;
+  /* margin: 20px 0; */
   padding: 10px 0;
 }
 
@@ -254,11 +255,10 @@ form {
   background-color: #4F8A8B;
   border: 5px solid #FBD46D;
   border-radius: 20px;
-  padding: 10px 20px;
+  padding: 20px;
   position: relative;
   text-align: center;
-  /* max-height: 80%; */
-  width: 80%;
+  max-width: 66%;
 }
 
 h2 {
@@ -268,31 +268,13 @@ h2 {
 
 .formFlex {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: space-between;
-  height: 600px;
-}
-
-form [type="submit"],
-.formFlex > * {
-  display: block;
-  width: calc(50% - 10px);
-}
-
-.playerCount,
-.playerCount div {
-  display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
-.playerCount div,
-.playerCount div * {
-  width: 49%;
-}
-
-label {
-  margin-top: 20px;
+.flexColumn {
+  padding-bottom: 20px;
+  width: calc(50% - 10px);
 }
 
 input {
@@ -305,6 +287,7 @@ textarea {
 }
 
 input,
+select,
 textarea {
   background-color: #EEE;
   border-radius: 10px;
@@ -314,8 +297,71 @@ textarea {
 }
 
 input:focus,
+select:focus,
 textarea:focus {
   box-shadow: 3px 3px 3px #001220;
+}
+
+.flexColumn > * {
+  display: block;
+  width: 100%;
+}
+
+.playerCount {
+  border-radius: 10px;
+  margin: 0;
+}
+
+label,
+form [type="submit"],
+.playerCount,
+.gameProgress {
+  margin-top: 20px;
+}
+
+.formDiv {
+  margin-top: 10px;
+}
+
+.playerCount label {
+  font-size: 0.9rem;
+}
+
+.formDiv label,
+.gameProgress label {
+  font-size: 0.95rem;
+}
+
+
+.playerCount,
+.playerCount div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.playerCount div,
+.playerCount div * {
+  width: 50%;
+}
+
+.campaignLengthDiv *,
+.sessionLengthDiv *,
+.locationDiv * {
+  display: inline-block;
+  width: 50%;
+}
+
+
+.gameProgress {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.gameProgress label,
+.gameProgress input {
+  margin-top: 0;
 }
 
 /* FOOTER SECTION */
@@ -336,6 +382,12 @@ footer a {
 }
 
 /* RESPONSIVE DESIGN */
+@media (max-width: 1350px) {
+  form {
+    max-width: 75%;
+  }
+}
+
 @media (max-width: 1200px) {
   .wrapper {
     width: 95%;
@@ -345,6 +397,18 @@ footer a {
   }
   .headFlex div {
     width: 450px;
+  }
+  form {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .formFlex {
+    flex-direction: column;
+  }
+  .flexColumn {
+    width: 100%;
   }
 }
 
@@ -396,7 +460,26 @@ footer a {
     padding: 7.5px 15px;
   }
   aside {
+    align-items: flex-start;
     overflow-y: scroll;
-    padding: 20px;
+    padding: 10px;
+  }
+  form {
+    max-width: calc(100% - 10px);
+    padding: 10px;
+  }
+  .flexColumn {
+    padding-bottom: 0;
+  }
+  .formDiv,
+  .gameProgress {
+    display: flex;
+    flex-direction: column;
+  }
+  .formDiv * {
+    width: 100%;
+  }
+  .startedDiv {
+    margin-top: 10px;
   }
 }
