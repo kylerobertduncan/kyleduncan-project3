@@ -16,6 +16,8 @@ function SubmitListing(props) {
     venue: "",
     open: true,
     started: false,
+    long: false,
+    dateAdded: ""
   }
 
   const [newListing, setNewListing] = useState({...defaultInputs});
@@ -29,7 +31,7 @@ function SubmitListing(props) {
   }
 
   const handleChange = (e) => {
-    const newListingInput = { ...newListing }; // this may not work with more nested objects? e.g. "players: []"
+    const newListingInput = { ...newListing };
     const property = e.target.id;
     const value = e.target.value;
     newListingInput[property] = value;
@@ -38,6 +40,7 @@ function SubmitListing(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // check for empty fields in the listing
     const checkFields = { ...newListing }
     let emptyField = false;
     for (let value in checkFields) {
@@ -49,6 +52,14 @@ function SubmitListing(props) {
     if (emptyField === true) {
       window.alert("Please complete all fields.")
     } else {
+      // set the lengthValue
+      const testLength = newListing.synopsis.split(' ').length
+      if (testLength > 25) {
+        const newListingInput = { ...newListing };
+        newListingInput.long = true;
+        setNewListing(newListingInput);
+      }
+      // send the listing to firebase
       const dbRef = firebase.database().ref();
       dbRef.push(newListing);
       setNewListing(defaultInputs);

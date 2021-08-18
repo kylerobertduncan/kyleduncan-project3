@@ -42,12 +42,17 @@ function GameListings(props) {
     <ul>
       {
         gameList.map( (listItem) => {
-          const { players, system, synopsis, startedBy, title } = listItem.info;
-          console.log(players);
+          const { long, players, system, synopsis, startedBy, title } = listItem.info;
+          // console.log(long);
+          let divClass;
+          if (long) {
+            divClass = "listing long"
+          } else {
+            divClass = "listing"
+          }
           return(
-            <>
-              <div className="listing" tabIndex="0">
-              <li key={listItem.key} >
+            <div className={divClass} key={listItem.key} tabIndex="0" >
+              <li>
                 <h3>{title}</h3>
                 <p className="system">{system}</p>
                 <p className="synopsis">{synopsis}</p>
@@ -67,7 +72,6 @@ function GameListings(props) {
                 title="Delete this listing"
               >X</button>
             </div>
-            </>
           )
         })
       }

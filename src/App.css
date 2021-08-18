@@ -192,6 +192,7 @@ ul {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-flow: dense;
   list-style: none;
 }
 
@@ -201,6 +202,7 @@ ul {
   border-radius: 20px;
   padding: 10px 20px;
   position: relative;
+  grid-row-end: span 3;
   z-index: 10;
 }
 
@@ -208,6 +210,10 @@ ul {
 .listing:focus,
 .listing:focus-within {
   box-shadow: -4px 4px 2px #FBD46D;
+}
+
+.long {
+  grid-row-end: span 4;
 }
 
 h3 {
