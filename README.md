@@ -18,6 +18,7 @@ e.g.:
     open: true,
     started: false,
     expectedLength: "6-10 sessions",
+    sessionLength: "",
     venue: "Online"
   }
 
