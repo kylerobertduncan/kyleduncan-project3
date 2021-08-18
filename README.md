@@ -100,9 +100,9 @@ Add more gameObject properties and display
   - make an array of properties that is mapped where required to be generated?
 
 ### 2.
-a.  Add a gameObject property, players: [], and add info to each tile;
-b.  Add a button to each tile that adds userName to player array in database;
-  i. Have function check against maxPlayers
+X a.  Add a gameObject property, players: [], and add info to each tile;
+X b.  Add a button to each tile that adds userName to player array in database;
+    i. Have function check against maxPlayers
 
 ### 3.
 a. Create a new object in Firebase, users: [];
@@ -127,6 +127,9 @@ Offer a choice of icons for each new game, to infer genre or vibe (via font-awes
 
 ### 8.
 Add ability (via modal?) for owner to edit the different properties of their listings
+
+### 9.
+Custom modal pop-ups for alert, confirm & prompt
 
 ## Styling References
 

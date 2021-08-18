@@ -9,7 +9,12 @@ function SubmitListing(props) {
     system: "",
     synopsis: "",
     startedBy: "",
-    players: ["no current players"]
+    minPlayers: 2,
+    maxPlayers: 6,
+    open: true,
+    started: false,
+    expectedLength: "",
+    venue: ""
   }
 
   const [newListing, setNewListing] = useState({...defaultInputs});

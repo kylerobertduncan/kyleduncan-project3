@@ -134,19 +134,48 @@ form [type="submit"]:hover {
   width: 40px;
 }
 
+.joinGame {
+  background-color: #4F8A8B;
+  border: 3px solid #001220;
+  border-radius: 10px;
+  box-shadow: -3px 3px 3px #001220;
+  color: #001220;
+  font-weight: 900;
+  height: 40px;
+  position: absolute;
+    bottom: 10px;
+    right: 7.5px;
+  transition: border 0.2s, color 0.2s;
+  width: 40px;
+}
+
+.joinGame img {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 5px;
+}
+
+.joinGame,
 .removeListing {
   visibility: hidden;
 }
 
-li:focus .removeListing,
-li:focus-within .removeListing,
-li:hover .removeListing {
+.listing:focus-within .joinGame,
+.listing:focus-within .removeListing,
+.listing:focus .joinGame,
+.listing:focus .removeListing,
+.listing:hover .joinGame,
+.listing:hover .removeListing {
   visibility: visible;
 }
 
 .removeListing:active,
 .removeListing:focus,
 .removeListing:hover,
+.joinGame:active,
+.joinGame:focus,
+.joinGame:hover,
 .closeFormButton:active,
 .closeFormButton:focus,
 .closeFormButton:hover {
@@ -166,7 +195,7 @@ ul {
   list-style: none;
 }
 
-li {
+.listing {
   background-color: #EEEEEEe1;
   border: 5px solid #4F8A8B;
   border-radius: 20px;
@@ -175,9 +204,9 @@ li {
   z-index: 10;
 }
 
-li:hover,
-li:focus,
-li:focus-within {
+.listing:hover,
+.listing:focus,
+.listing:focus-within {
   box-shadow: -4px 4px 2px #FBD46D;
 }
 
@@ -195,6 +224,7 @@ h3 {
   font-size: 0.8rem;
   margin-top: 15px;
 }
+.players,
 .startedBy {
   font-size: 0.9rem;
   margin: 15px 0;
