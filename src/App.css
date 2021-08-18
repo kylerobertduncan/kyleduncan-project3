@@ -251,6 +251,7 @@ form {
   padding: 10px 20px;
   position: relative;
   text-align: center;
+  /* max-height: 90%; */
   width: 500px;
 }
 
@@ -259,7 +260,14 @@ h2 {
   margin-top: 10px;
 }
 
-form * {
+.formFlex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+form [type="submit"],
+.formFlex > * {
   display: block;
   width: 100%;
 }

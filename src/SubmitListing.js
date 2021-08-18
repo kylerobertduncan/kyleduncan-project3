@@ -11,10 +11,11 @@ function SubmitListing(props) {
     startedBy: "",
     minPlayers: 2,
     maxPlayers: 6,
+    campaignLength: "",
+    sessionLength: "",
+    venue: "",
     open: true,
     started: false,
-    expectedLength: "",
-    venue: ""
   }
 
   const [newListing, setNewListing] = useState({...defaultInputs});
@@ -59,14 +60,36 @@ function SubmitListing(props) {
     <aside onDoubleClick={closeModal}>
       <form>
         <h2>Add New Game</h2>
-        <label htmlFor="title">Game Title:</label>
-        <input autoFocus type="text" id="title" onChange={handleChange} value={newListing.title} />
-        <label htmlFor="system">Game System:</label>
-        <input type="text" id="system" onChange={handleChange} value={newListing.system} />
-        <label htmlFor="synopsis">Synopsis:</label>
-        <textarea id="synopsis" onChange={handleChange} value={newListing.synopsis} ></textarea>
-        <label htmlFor="startedBy">Your name:</label>
-        <input type="text" id="startedBy" onChange={handleChange} value={newListing.startedBy} />
+        <div className="formFlex">
+          <label htmlFor="title">Game Title:</label>
+          <input autoFocus type="text" id="title" onChange={handleChange} value={newListing.title} />
+          <label htmlFor="system">Game System:</label>
+          <input type="text" id="system" onChange={handleChange} value={newListing.system} />
+          <label htmlFor="synopsis">Synopsis:</label>
+          <textarea id="synopsis" onChange={handleChange} value={newListing.synopsis} ></textarea>
+          <label htmlFor="startedBy">Your name:</label>
+          <input type="text" id="startedBy" onChange={handleChange} value={newListing.startedBy} />
+          
+          {/* <div className="playerCount">
+            <label htmlFor="minPlayers">Min. Players</label>
+            <input type="number" id="minPlayers" min="1" onChange={handleChange} value={newListing.minPlayers} />
+            <label htmlFor="maxPlayers">Max. Players</label>
+            <input type="number" id="maxPlayers" onChange={handleChange} value={newListing.maxPlayers} />
+          </div>
+          <label htmlFor="campaignLength">Campaign Length:</label>
+          <input type="text" id="campaignLength" onChange={handleChange} value={newListing.campaignLength} />
+          <label htmlFor="sessionLength">Session Length:</label>
+          <input type="text" id="sessionLength" onChange={handleChange} value={newListing.sessionLength} />
+          <label htmlFor="venue">Venue:</label>
+          <input type="text" id="venue" onChange={handleChange} value={newListing.venue} />
+          <div className="gameProgress">
+            <label htmlFor="open">Open to players:</label>
+            <input type="checkbox" id="open" />
+            <label htmlFor="started">Game already started:</label>
+            <input type="checkbox" id="started" />
+          </div> */}
+        </div>
+
         <button type="submit" onClick={handleSubmit}>Post it!</button>
         <button aria-label="Cancel new listing" className="closeFormButton" onClick={handleModal}>X</button>
       </form>
