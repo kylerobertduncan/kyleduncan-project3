@@ -213,8 +213,13 @@ ul {
   box-shadow: -4px 4px 2px #FBD46D;
 }
 
-.long {
+.medium {
   grid-row-end: span 4;
+}
+
+.long {
+  /* grid-row-end: span 5; */
+  grid-column-end: span 2;
 }
 
 h3 {
@@ -227,11 +232,15 @@ h3 {
   font-size: 0.8rem;
   text-align: center;
 }
+.length,
+.location,
+.noOfPlayers,
+.players,
 .synopsis {
   font-size: 0.8rem;
   margin-top: 15px;
 }
-.players,
+
 .startedBy {
   font-size: 0.9rem;
   margin: 15px 0;
@@ -383,6 +392,10 @@ footer a {
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 1350px) {
+  .long {
+    grid-row-end: span 5;
+    grid-column-end: auto;
+  }
   form {
     max-width: 75%;
   }

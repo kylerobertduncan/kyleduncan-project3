@@ -42,11 +42,12 @@ function GameListings(props) {
     <ul>
       {
         gameList.map( (listItem) => {
-          const { long, players, system, synopsis, startedBy, title } = listItem.info;
-          // console.log(long);
+          const { campaignLength, location, size, minPlayers, maxPlayers, players, sessionLength, system, synopsis, startedBy, title } = listItem.info;
           let divClass;
-          if (long) {
+          if (size === "long") {
             divClass = "listing long"
+          } else if (size === "medium") {
+            divClass = "listing medium"
           } else {
             divClass = "listing"
           }
@@ -56,8 +57,31 @@ function GameListings(props) {
                 <h3>{title}</h3>
                 <p className="system">{system}</p>
                 <p className="synopsis">{synopsis}</p>
-                <p className="startedBy">To play, contact {startedBy}</p>
+
+                {
+                  minPlayers ?
+                  <p className="noOfPlayers">For {minPlayers}
+                  {
+                    maxPlayers ? `-${maxPlayers}` : "+"
+                  } players</p> :
+                  null
+                }
+
+                {
+                  campaignLength ?
+                  <p className="length">{campaignLength}
+                  { sessionLength ? ` of ${sessionLength}` : null }</p> :
+                  null
+                }
+
+                {
+                  location ?
+                  <p className="location">Location: {location}</p> :
+                  null
+                }
+
                 <p className="players">Players: { players ? players.join(', ') : "sign up to play!"}</p>
+                <p className="startedBy">To play, contact {startedBy}</p>
               </li>
               <button
                 aria-label={`Join ${title}`}

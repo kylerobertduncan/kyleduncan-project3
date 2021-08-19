@@ -16,7 +16,7 @@ function SubmitListing(props) {
     location: "",
     open: true,
     started: false,
-    long: false,
+    size: "",
     dateAdded: "",
     required: [ "title", "synopsis", "startedBy" ]
     // handles string values only
@@ -54,10 +54,14 @@ function SubmitListing(props) {
       window.alert("Please complete all fields.")
     } else {
       // set the lengthValue
-      const testLength = newListing.synopsis.split(' ').length
-      if (testLength > 25) {
+      const testLength = newListing.synopsis.split(' ').length;
+      if (testLength > 50) {
         const newListingInput = { ...newListing };
-        newListingInput.long = true;
+        newListingInput.size = "long";
+        setNewListing(newListingInput);
+      } else if (testLength > 25) {
+        const newListingInput = { ...newListing };
+        newListingInput.size = "medium";
         setNewListing(newListingInput);
       }
       // send the listing to firebase
@@ -109,10 +113,10 @@ function SubmitListing(props) {
               <select id="campaignLength" onChange={handleChange} value={newListing.campaignLength}
               >
                 <option value="" defaultValue disabled>Choose One</option>
-                <option value="oneShot">One Shot: 1-2 sessions</option>
-                <option value="short">Short: 3-5 sessions</option>
-                <option value="medium">Medium: 5-10 sessions</option>
-                <option value="long">Long: 10+ sessions</option>
+                <option value="1-2 sessions">One Shot: 1-2 sessions</option>
+                <option value="3-5 sessions">Short: 3-5 sessions</option>
+                <option value="5-10 sessions">Medium: 5-10 sessions</option>
+                <option value="10+ sessions">Long: 10+ sessions</option>
               </select>
             </div>
 
