@@ -246,6 +246,15 @@ h3 {
   margin: 15px 0;
 }
 
+.listingFlex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.listingFlex * {
+  width: 50%;
+}
+
 /* ASIDE SECTION */
 aside {
   background-color: #222831A0;
@@ -391,10 +400,17 @@ footer a {
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 1350px) {
+@media (max-width: 1414px) {
   .long {
     grid-row-end: span 5;
     grid-column-end: auto;
+  }
+  .listingFlex {
+    display:inline-block ;
+    flex-wrap: wrap;
+  }
+  .listingFlex * {
+    width: auto;
   }
   form {
     max-width: 75%;

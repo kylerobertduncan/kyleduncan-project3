@@ -44,8 +44,10 @@ function GameListings(props) {
         gameList.map( (listItem) => {
           const { campaignLength, location, size, minPlayers, maxPlayers, players, sessionLength, system, synopsis, startedBy, title } = listItem.info;
           let divClass;
+          let flexClass="";
           if (size === "long") {
-            divClass = "listing long"
+            divClass = "listing long";
+            flexClass = "listingFlex";
           } else if (size === "medium") {
             divClass = "listing medium"
           } else {
@@ -54,34 +56,38 @@ function GameListings(props) {
           return(
             <div className={divClass} key={listItem.key} tabIndex="0" >
               <li>
+
                 <h3>{title}</h3>
+
                 <p className="system">{system}</p>
+
                 <p className="synopsis">{synopsis}</p>
 
-                {
-                  minPlayers ?
-                  <p className="noOfPlayers">For {minPlayers}
+                <div className={flexClass}>
                   {
-                    maxPlayers ? `-${maxPlayers}` : "+"
-                  } players</p> :
-                  null
-                }
-
-                {
-                  campaignLength ?
-                  <p className="length">{campaignLength}
-                  { sessionLength ? ` of ${sessionLength}` : null }</p> :
-                  null
-                }
-
-                {
-                  location ?
-                  <p className="location">Location: {location}</p> :
-                  null
-                }
-
-                <p className="players">Players: { players ? players.join(', ') : "sign up to play!"}</p>
+                    minPlayers ?
+                    <p className="noOfPlayers">For {minPlayers}
+                    {
+                      maxPlayers ? `-${maxPlayers}` : "+"
+                    } players</p> :
+                    null
+                  }
+                  {
+                    campaignLength ?
+                    <p className="length">{campaignLength}
+                    { sessionLength ? ` of ${sessionLength}` : null }</p> :
+                    null
+                  }
+                  {
+                    location ?
+                    <p className="location">Location: {location}</p> :
+                    null
+                  }
+                  <p className="players">Players: { players ? players.join(', ') : "sign up to play!"}</p>
+                </div>
+                
                 <p className="startedBy">To play, contact {startedBy}</p>
+
               </li>
               <button
                 aria-label={`Join ${title}`}

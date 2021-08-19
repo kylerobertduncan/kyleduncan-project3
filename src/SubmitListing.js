@@ -51,7 +51,7 @@ function SubmitListing(props) {
       }
     }
     if (emptyField === true) {
-      window.alert("Please complete all fields.")
+      window.alert("Please complete required fields.")
     } else {
       // set the lengthValue
       const testLength = newListing.synopsis.split(' ').length;
@@ -80,17 +80,17 @@ function SubmitListing(props) {
 
           <div className="flexColumn">
 
-            <label htmlFor="title">Game Title:</label>
-            <input autoFocus type="text" id="title" onChange={handleChange} value={newListing.title} />
+            <label htmlFor="title">Game Title: *</label>
+            <input autoFocus type="text" id="title" onChange={handleChange} value={newListing.title} placeholder="required"/>
 
             <label htmlFor="system">Game System:</label>
-            <input type="text" id="system" onChange={handleChange} value={newListing.system} />
+            <input type="text" id="system" onChange={handleChange} value={newListing.system}/>
 
-            <label htmlFor="synopsis">Synopsis:</label>
-            <textarea id="synopsis" onChange={handleChange} value={newListing.synopsis} ></textarea>
+            <label htmlFor="synopsis">Synopsis: *</label>
+            <textarea id="synopsis" onChange={handleChange} value={newListing.synopsis} placeholder="required"></textarea>
 
-            <label htmlFor="startedBy">Your name:</label>
-            <input type="text" id="startedBy" onChange={handleChange} value={newListing.startedBy} />
+            <label htmlFor="startedBy">Your name: *</label>
+            <input type="text" id="startedBy" onChange={handleChange} value={newListing.startedBy} placeholder="required"/>
 
           </div>
           

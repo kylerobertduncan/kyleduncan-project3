@@ -85,19 +85,19 @@ i. Accessibility in SubmitListing modal
   - add 'esc' key option
   X lock keyboard into tab cycle ?? autofocus on render
   
-ii. Add second background for small screens?
+X ii. Add second background for small screens?
 
 iii. Experiment with grid to make tiles more economically sized
-  - filter gameList on import, based on length of synopsis
-  - add a property to those with long entries (35-50+ words?)
-  - in gameList.map add a class to the li when "long = true"
-  - add a css class that sets grid-column to span 2 (rows?)
-  - add the auto-fill dense attribute to the grid
+X  - filter gameList on import, based on length of synopsis
+X  - add a property to those with long entries (35-50+ words?)
+X  - in gameList.map add a class to the li when "long = true"
+X  - add a css class that sets grid-column to span 2 (rows?)
+X  - add the auto-fill dense attribute to the grid
 
 ### 1.
 Add a prompt at login for userName, and store in state, and autopopulate form name
 Add datalist for gameSystem input, populated by existing gameSystem responses
-Add more gameObject properties and display
+x Add more gameObject properties and display
   - make an array of properties that is mapped where required to be generated?
 
 ### 2.
@@ -115,7 +115,7 @@ c. Add function to remove userName from a particular game player array (add/remo
 ### 4.
 Add conditional classes or other visual when game tiles, when min & maxPlayers met, or if game is closed
 
-5.
+### 5.
 a. Collect userName & email at page load, add both as object/s to users: [], and store in currentUser state
   ? Research authentication/security for storing emails
   i. Add notify players button on each game that opens an email to all players
