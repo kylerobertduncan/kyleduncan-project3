@@ -17,9 +17,11 @@ function SubmitListing(props) {
     open: true,
     started: false,
     size: "",
-    dateAdded: "",
+    // dateAdded: "",
+    // references: "",
+    // website: "",
     required: [ "title", "synopsis", "startedBy" ]
-    // handles string values only
+    // function handles string values only, i.e. adding 'open' won't work
   }
 
   const [newListing, setNewListing] = useState({...defaultInputs});
